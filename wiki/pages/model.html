@@ -1,0 +1,219 @@
+{% extends "layout.html" %}
+  
+{% block title %}{% endblock %}
+{% block lead %}
+<style>
+  .row {
+    display: flex;
+  }
+
+  .column {
+    flex: 50%;
+    padding: 100px;
+  }
+</style>
+
+<head>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+
+<div class="d-flex justify-content-center">
+  <div class="col igemthrace-image-container" style="background-image: url('https://static.igem.wiki/teams/4989/wiki/wiki/model.gif');background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;">
+    <div class="igemthrace-blur d-flex justify-content-center" style="width: 100%;height: 100%;align-items: center;">
+      <h2 class="igemthrace-white-text-coloring igemthrace-bold-font">Mathematical Modeling of the genetic construct enzymes</h2>
+    </div>
+  </div>
+</div>
+
+<!--
+Demonstrate engineering success in a part of your project by going through at least one iteration of the engineering design cycle.
+-->
+{% endblock %}
+
+{% block page_content %}
+
+<div class="container d-flex flex-column">
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">Linear Regression model reveals SCFA's relationship with serotonin levels</h2>
+    <p class="igemthrace-blue-text-coloring">In our mathematical modeling section, we mainly tried to simulate the in vivo production of butyrate, an important SCFA. Our complex vector system is modeled in a simple way and the expected production of serotonin is based on a Machine Learning model. Data from both our lab experiments revealed relationships between SCFA's with serotonin production and also our part's activity with butyrate production. Our ultimate goal is to find the conditions that our part's final enzyme 'Butyryl-CoA:acetate CoA-transferase' (ButCoAT) produces butyrate, in a way that it can induce serotonin production.</p>
+    <p class="igemthrace-blue-text-coloring">First, the objective of our analysis was to establish a mathematical relationship between the concentration of short-chain fatty acids (SCFAs) and the concentration of serotonin. To achieve this goal, we employed machine learning techniques on the data obtained from our ELISA wet lab experiment. This dataset consisted of pairs of serotonin concentrations and varying SCFA concentrations.</p>
+    <p class="igemthrace-blue-text-coloring">We utilized non-linear regression methods to develop an interpretable function that could predict serotonin concentration based on SCFA concentration. The formula we derived for this purpose is as follows:</p>
+    <p class="igemthrace-blue-text-coloring">$$f(acetate, butyrate) = a \cdot acetate + b \cdot butyrate + \frac{c \cdot acetate}{butyrate^{0.1}} +d$$</p>
+    <p class="igemthrace-blue-text-coloring">Where: \(a = 1.06479392 \cdot 10^{-7}, b = 1.25943986 \cdot 10^{-8}, c = -1.73230132 \cdot 10^{-8}, d = 1.880177124361716\).</p>
+    <p class="igemthrace-blue-text-coloring">The above concentrations are measured in \(nmol/L\).</p>
+    <p class="igemthrace-blue-text-coloring">Our analysis indicates that among the two primary SCFAs we examined, acetate appears to play a slightly more significant role in influencing final serotonin levels. This conclusion is further supported by independent statistical analyses. Notably, the maximum serotonin concentration is achieved when both acetate and butyrate are present at their highest concentrations.</p>
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/plot.png" style="width: 350px;">
+        <figcaption>  </figcaption>
+      </figure>
+    </div>
+
+    <p class="igemthrace-blue-text-coloring">We then used the equation derived from linear-regression to see how much serotonin is produced in different acetate concentrations for a certain butyrate concentration. Results are presented below.</p>
+    <div class="row">
+      <div class="column">
+        <img src="https://static.igem.wiki/teams/4989/wiki/butyrate-reaction.png" style="width: 350px;">
+      </div>
+      <div class="column">
+        <img src="https://static.igem.wiki/teams/4989/wiki/serotonin-reaction.png" style="width: 350px;">
+      </div>
+    </div>
+    <p class="igemthrace-blue-text-coloring">After simulating SCFA's - serotonin relationship, we proceeded to Tukey's post-hoc test on the anova test results (see wet lab experiment section) to support the findings of the machine learning model (that Acetate and Butyrate in high concentrations induce serotonin production). With this test we saw the actual differences in serotonin production  between the SCFA combinations. Our reference group was set as: Butyrate = 0 nmol/L  and Acetate = 0 nmol/L, which is our control. Tukey's test results for strong p-values are the following:</p>
+    <table border="1" class="igemthrace-blue-text-coloring">
+      <caption>Table 1: Indications : B00: butyrate = 0 nmol/L, B05: butyrate = 5*10^5 nmol/L, B10: butyrate = 10^6 nmol/L, B25: butyrate = 25*10^5 nmol/L, A00: acetate = 0 nmol/L, A10: acetate = 10^7 nmol/L, A20: acetate = 2*10^7 nmol/L, A30: acetate = 3*10^7 nmol/L . Indications of combination example: B10_A20: butyrate = 10^6 nmol/L (B10) & acetate = 2*10^7 (A20)
+        </caption>
+      <tr>
+        <th>Combination</th>
+        <th>Diff</th>
+        <th>Lwr</th>
+        <th>Upr</th>
+        <th>p adj</th>
+      </tr>
+      <tr>
+        <td>B00_A20-B00_A00</td>
+        <td>2.20884986</td>
+        <td>1.22238354</td>
+        <td>3.19531619</td>
+        <td>0.0000000</td>
+      </tr>
+      <tr>
+        <td>B05_A20-B00_A00</td>
+        <td>1.64867147</td>
+        <td>0.66220514</td>
+        <td>2.63513779</td>
+        <td>0.0000001</td>
+      </tr>
+      <tr>
+        <td>B05_A30-B00_A00</td>
+        <td>2.27137802</td>
+        <td>1.28491169</td>
+        <td>3.25784435</td>
+        <td>0.0000000</td>
+      </tr>
+      <tr>
+        <td>B10_A20-B00_A00</td>
+        <td>3.09467448</td>
+        <td>2.10820815</td>
+        <td>4.08114081</td>
+        <td>0.0000000</td>
+      </tr>
+      <tr>
+        <td>B10_A30-B00_A00</td>
+        <td>1.60324156</td>
+        <td>0.61677523</td>
+        <td>2.58970788</td>
+        <td>0.0000002</td>
+      </tr>
+      <tr>
+        <td>B15_A20-B00_A00</td>
+        <td>1.79875794</td>
+        <td>0.81229161</td>
+        <td>2.78522426</td>
+        <td>0.0000000</td>
+      </tr>
+      <tr>
+        <td>B15_A30-B00_A00</td>
+        <td>2.30538182</td>
+        <td>1.31891549</td>
+        <td>3.29184814</td>
+        <td>0.0000000</td>
+      </tr>
+    </table>
+    <p class="igemthrace-blue-text-coloring">By comparing the difference in serotonin mean values we observe that, for a standard butyrate concentration, increasing acetate tends to increase serotonin production, which comes in agreement with the information that our Machine Learning Model provides.</p>
+      
+  </div>
+
+
+
+
+
+  <div class="igemthrace-space-height-2"></div>
+
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+      <h2 class="igemthrace-blue-text-coloring">Modeling of part activity and function</h2>
+      <p class="igemthrace-blue-text-coloring">After getting information on SCFA's relationship with serotonin we moved on to constructing a basic model of enzyme kinetics with the goal to find how much butyrate is produced with a given amount of acetyl-coa and the 5 enzymes that are produced from our construct. In more detail the model consists of Ordinary Differential Equations (ODEs) that calculate each metabolite's concentration values through different time stamps. It also reveals the activity of Butyryl-CoA:acetate CoA-transferase, the final enzyme of our system. This enzyme produces butyrate and we observe different butyrate values dependent on different substrate concentrations.</p>
+      <p class="igemthrace-blue-text-coloring">The kinetics of our system are described by the Michaelis-Menten enzyme model. The rapid equilibrium assumption and the steady state approximation are some of the models assumptions.</p>
+      <p class="igemthrace-blue-text-coloring">The general reaction scheme of an enzyme-catalyzed reaction is as follows:</p>
+      <p class="igemthrace-blue-text-coloring">$$E + S \rightarrow k_{1}[ES] \rightarrow k_{2}E + P$$</p>
+      <p class="igemthrace-blue-text-coloring">After applying all the assumptions, the following equations, known as Michaelis-Menten equation occurs:</p>
+      <p class="igemthrace-blue-text-coloring">$$V_o = \frac{V_{max}[S]}{K_M + [S]}$$</p>
+      <p class="igemthrace-blue-text-coloring">We acquired the above constants ( Vmax, Km ) through bibliography. If we solve for Substrate the following equation occurs:</p>
+      <p class="igemthrace-blue-text-coloring">$$ \frac{d[S]}{dt} = \frac{-V_0}{V_{max}} \cdot [S]$$</p>
+      <p class="igemthrace-blue-text-coloring">Due to law of mass action, the equation for product concentration is:</p>
+      <p class="igemthrace-blue-text-coloring">$$ \frac{d[P]}{dt} = \frac{V_0}{V_{max}} \cdot [S]$$</p>
+      <p class="igemthrace-blue-text-coloring">We also added a physical constant to every metabolite to decrease its concentration after getting its maximum Steady-State concentration. The decrease constant is referring to factors like metabolite degradation and metabolite removal from our system. The decrease was interpreted as : \( -k_{decrease} \cdot [metabolite] \)</p>
+      <p class="igemthrace-blue-text-coloring">Each enzyme produced by our system has the same ribosome binding sites and is constitutively expressed by a unique promoter too. Thus, transcription and translation constants ( k_transcript , k_translation ) are the same for each enzyme. So, transcription rates \( (k_{transcript} \cdot [vector]) \)and translation rates \( (k_{translation} \cdot [mrna]) \)are added to each part's ODEs. The ordinary differential equations that occur and describe the change (for instance) in butyryl-coa, butyrate and their corresponding enzymes concentrations over time, are in form:</p>
+      <p class="igemthrace-blue-text-coloring">$$\frac{d[mrna_{BHD}]}{dt} = k_{transcript} \cdot [vector] - mrna_{degradation} \cdot [mrna_{BDH}]$$</p>
+      <p class="igemthrace-blue-text-coloring">$$ \frac{d[BHD]}{dt} = k_{translation} \cdot [mrna_{BHD}] - protein_{degradation} \cdot [BHD]$$</p>
+      <p class="igemthrace-blue-text-coloring">$$\frac{d[butyryl_{coa}]}{dt} = \frac{V_0}{V_{max}} \cdot [crotonyl_{coa}] - k_{decrease} \cdot [butyryl_{coa}]$$</p>
+      <p class="igemthrace-blue-text-coloring">$$ \frac{d[mrna_{ButCoAT}]}{dt} = k_{transcript} \cdot [vector] - mrna_{degradation} \cdot [mrna_{ButCoAT}]$$</p>
+      <p class="igemthrace-blue-text-coloring">$$\frac{d[protein_{ButCoAT}]}{dt} = k_{translation} \cdot [mrna_{ButCoAT}] - prot_{degr} \cdot [protein_{ButCoAT}] $$</p>
+      <p class="igemthrace-blue-text-coloring">$$\frac{d[butyrate]}{dt} = \frac{V_0}{V_{max}} \cdot [butyryl_{CoA}] - k_{decrease} \cdot [butyrate]$$</p>
+      <p class="igemthrace-blue-text-coloring">The same set of equations is used for every other metabolite in our system and their corresponding ODEs occur. Thus, we describe each metabolite conversion from one molecule to another through enzymatic catalysis. We were able to observe changes in metabolites concentration over time. By focusing on the most important enzyme of our system, the one that catalyzes the final step, we saw how different butyryl-coa concentrations produce different butyrate concentrations with a non-linear relationship. An optimization of the genetic circuit we want to simulate is shown below.</p>
+      <div style="text-align: center;">
+        <figure>
+          <img src="https://static.igem.wiki/teams/4989/wiki/circuit.png" style="width: 600px;">
+          <figcaption>  </figcaption>
+        </figure>
+      </div>
+  
+      <p class="igemthrace-blue-text-coloring">Below we present the simulation of our system for a certain acetyl-coa concentration.</p>
+      <div class="row">
+        <div class="column">
+          <img src="https://static.igem.wiki/teams/4989/wiki/sotiris1.png" style="width: 350px;">
+        </div>
+        <div class="column">
+          <img src="https://static.igem.wiki/teams/4989/wiki/sotiris2.png" style="width: 350px;">
+        </div>
+      </div>
+      <p class="igemthrace-blue-text-coloring">Focusing on the concentrations of the most important molecules we observe a rapid consumption of Acetyl CoA that results in an early spike of butyrate concentration which is decreased in a span of 25 mins. Also a small amount of Acetoacetyl-CoA is needed in the pathway.</p>
+      <p class="igemthrace-blue-text-coloring">Moreover, we examine the dependance of butyrate on butyryl-coa concentrations. We observe that the production of each of the aforementioned molecules is of course dependent on the concentration of the previous one in the order of the metabolic pathway. For example Butyrate is dependent on the concentration of Butyryl-CoA. A non-linear relationship between substrate (butyryl-CoA) and product (butyrate) is observed. We see early product formation, before steady-state maximum concentration of butyrate, to better examine the fast changes in butyrate concentration.</p>
+      <div style="text-align: center;">
+        <figure>
+          <img src="https://static.igem.wiki/teams/4989/wiki/sotiris3.png" style="width: 450px;">
+          <figcaption>  </figcaption>
+        </figure>
+      </div>
+      <p class="igemthrace-blue-text-coloring">To conclude, we simulated our system's activity from part's expression to serotonin production. We simulated butyrate production by the Butyryl-CoA:acetate CoA-transferase. Linear Regression formula with butyrate and certain acetate concentrations as input, returned the expected serotonin production through time.</p>
+    </div>
+</div>
+
+
+
+
+<div class="igemthrace-space-height-2"></div>
+
+<div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">References</h2>
+    <ol>
+      <li class="igemthrace-blue-text-coloring">Rafael Muñoz-Tamayo, Béatrice Laroche, Éric Walter, Joël Doré, Sylvia H. Duncan, Harry J. Flint, Marion Leclerc, Kinetic modelling of lactate utilization and butyrate production by key human colonic bacterial species, FEMS Microbiology Ecology, Volume 76, Issue 3, June 2011, Pages 615-624, <a href="https://academic.oup.com/femsec/article/76/3/615/490125">https://academic.oup.com/femsec/article/76/3/615/490125</a></li>
+      <li class="igemthrace-blue-text-coloring">Quan Zhou, Ying Liu, Wenqiao Yuan,Kinetic modeling of butyric acid effects on butanol fermentation by Clostridium saccharoperbutylacetonicum,New Biotechnology,Volume 55,2020,Pages 118-126,ISSN 1871-6784, <a href="https://doi.org/10.1016/j.nbt.2019.10.004">https://doi.org/10.1016/j.nbt.2019.10.004</a>.</li>
+      <li class="igemthrace-blue-text-coloring">Li, RD., Li, YY., Lu, LY. et al. An improved kinetic model for the acetone-butanol-ethanol pathway of Clostridium acetobutylicum and model-based perturbation analysis. BMC Syst Biol 5 (Suppl 1), S12 (2011). <a href="https://doi.org/10.1186/1752-0509-5-S1-S12">https://doi.org/10.1186/1752-0509-5-S1-S12</a></li>
+      <li class="igemthrace-blue-text-coloring">R. Gheshlaghi, J.M. Scharer, M. Moo-Young, C.P. Chou, Metabolic pathways of clostridia for producing butanol, Biotechnology Advances, Volume 27, Issue 6, 2009, Pages 764-781, ISSN 0734-9750, <a href="https://doi.org/10.1016/j.biotechadv.2009.06.002">https://doi.org/10.1016/j.biotechadv.2009.06.002</a></li>
+      <li class="igemthrace-blue-text-coloring">Khan, N.A.; Alshammari, F.S.; Romero, C.A.T.; Sulaiman, M.; Laouini, G. Mathematical Analysis of Reaction-Diffusion Equations Modeling the Michaelis-Menten Kinetics in a Micro-Disk Biosensor. Molecules 2021, 26, 7310. <a href="https://doi.org/10.3390/molecules26237310">https://doi.org/10.3390/molecules26237310</a></li>
+      <li class="igemthrace-blue-text-coloring">Gunawardena J. Some lessons about models from Michaelis and Menten. Mol Biol Cell. 2012 Feb;23(4):517-9. doi: 10.1091/mbc.E11-07-0643. Erratum in: Mol Biol Cell. 2012 Jul;23(14):2819. PMID: 22337858; PMCID: PMC3279381</li>
+      <li class="igemthrace-blue-text-coloring">D. Mary Celin Sharmila, T. Praveen, L. Rajendran, "Mathematical Modeling and Analysis of Nonlinear Enzyme Catalyzed Reaction Processes", Journal of Theoretical Chemistry, vol. 2013, Article ID 931091, 7 pages, 2013. <a href="https://doi.org/10.1155/2013/931091"></a>https://doi.org/10.1155/2013/931091</li>
+    </ol>
+</div>
+
+
+
+<!--
+<div class="row mt-4">
+  <div class="col">
+    <div class="bd-callout bd-callout-info">
+      <h4>Silver Medal Criterion #1</h4>
+      <p>Demonstrate engineering success in a part of your project by going through at least one iteration of the engineering design cycle. This achievement should be distinct from your Contribution for Bronze.<p>
+      <p>If you plan to show engineering success by creating a new Part that has been shown to work as expected, you must document your contribution on the Part's Main Page on the <a href="http://parts.igem.org/Main_Page">Registry</a> for your team to be eligible for this criteria.</p>
+      <hr>
+      <p>Please see the <a href="https://competition.igem.org/judging/medals">2023 Medals Page</a> for more information.</p>
+    </div>
+  </div>
+</div>
+-->
+{% endblock %}

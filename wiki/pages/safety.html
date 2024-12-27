@@ -1,0 +1,385 @@
+{% extends "layout.html" %}
+
+{% block title %}{% endblock %}
+{% block lead %}
+
+<style>
+  * {box-sizing: border-box}
+  .mySlides1, .mySlides2 {display: none}
+  img {vertical-align: middle;}
+  
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a grey background color */
+  .prev:hover, .next:hover {
+    background-color: #f1f1f1;
+    color: black;
+  }
+
+  .italic-box {
+    border: 1px solid #ccc; /* Add a border for the box */
+    padding: 10px; /* Add padding to create some space around the text */
+    font-style: italic; /* Make the text inside the box italic */
+    background-color: #dfdcdc; /* Optional: Add a background color */
+  }
+
+  </style>
+  
+
+
+<div class="d-flex justify-content-center">
+  <div class="col igemthrace-image-container" style="background-image: url('https://static.igem.wiki/teams/4989/wiki/new-safety.gif');background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;">
+    <div class="igemthrace-blur d-flex justify-content-center" style="width: 100%;height: 100%;align-items: center;">
+      <h2 class="igemthrace-white-text-coloring igemthrace-bold-font">Safety</h2>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block page_content %}
+
+
+
+
+<div class="container" data-spy="scroll" data-target="#menuspy" data-offset="10">
+  <div class="row">
+    <nav class="col-2 igemthrace-menuspy" id="menuspy">
+      <ul class="nav nav-pills nav-stacked d-flex flex-column igemthrace-blue-shadow rounded">
+        <li class="active"><a href="#section1" class="igemthrace-blue-text-coloring">Introduction</a></li>
+        <li><a href="#section2" class="igemthrace-blue-text-coloring">Safety in laboratory</a></li>
+        <li><a href="#section3" class="igemthrace-blue-text-coloring">Biological safety</a></li>
+        <li><a href="#section4" class="igemthrace-blue-text-coloring">Consumer and Environmental safety</a></li>
+        <li><a href="#section5" class="igemthrace-blue-text-coloring">Human Practices safety</a></li>
+        <li><a href="#section6" class="igemthrace-blue-text-coloring">Educational safety</a></li>
+        <li><a href="#section7" class="igemthrace-blue-text-coloring">References</a></li>
+      </ul>
+    </nav>
+  
+  <div class="col">
+
+
+      <div class="igemthrace-space-height-2"></div>
+
+
+
+      <div id="section1" class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+        <div class="col-md-4">
+          <figure>
+            <img src="https://static.igem.wiki/teams/4989/wiki/safety0.png" style="width: 100%;">
+            <figcaption></figcaption>
+          </figure>
+    
+        </div>
+        <div class="col-md-8">
+          <h2 class="igemthrace-blue-text-coloring">Introduction</h2>
+          <div class="igemthrace-space-height-2"></div>
+          <p class="igemthrace-blue-text-coloring">We understand as a team that safety in the laboratory is a very important part of our work since it is our obligation to create and maintain a safe environment for the laboratory staff, the conducting experiments as well and our society. Also, we should always see the bigger picture of our experiments and take into consideration all the safety aspects that arise for keeping our environment, society, and in a more general sense the world. Therefore, we faced various situations, due to the multifaceted experimental line that we followed, where we needed to establish strong safety pillars as shown below. With the valuable help and guidance from our university faculty we achieved to cover all the possible safety voids of our project.</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="igemthrace-space-height-2"></div>
+
+      <div id="section2" class="slideshow-container">
+        <div class="mySlides1">
+          <div class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+            <div class="col-md-4">
+              <img src="https://static.igem.wiki/teams/4989/wiki/safety1.jpg" style="width: 100%;" alt="The Problem Image">
+            </div>
+            <div class="col-md-8">
+              <h2 class="igemthrace-blue-text-coloring">Safety in the laboratory</h2>
+              <h2 class="igemthrace-blue-text-coloring">Working with cancer cell line Caco-2</h2>
+              <div class="igemthrace-space-height-2"></div>
+              <p class="igemthrace-blue-text-coloring">Cell cultures of cancer lines are very sensitive in their management, and they should be treated in an utterly safe and sterilized environment. Our university has great experience in handling cell lines and provides specific spaces for working with them. Those spaces are equipped with well-maintained and up-to-date flow hoods with specific lab equipment and tools (e.g. pipettes, tubes, gloves, vortex, incubators, etc.) that are specifically only for use for experiments that use cell lines.</p>
+              <p class="igemthrace-blue-text-coloring">Firstly before getting in hand with our experiments, our graduate supervisor trained us to handle the cell lines and maintain every safety requirement needed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mySlides1">
+          <div class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+            <div class="col-md-4">
+              <img src="https://static.igem.wiki/teams/4989/wiki/safety2.jpg" style="width: 100%;" alt="The Problem Image">
+            </div>
+            <div class="col-md-8">
+              <h2 class="igemthrace-blue-text-coloring">Safety in the laboratory</h2>
+              <h2 class="igemthrace-blue-text-coloring">Working on an open bench</h2>
+              <div class="igemthrace-space-height-2"></div>
+              <p class="igemthrace-blue-text-coloring">While working with non-hazardous or non-sensitive substances, we still had to maintain the safety rules on the open lab bench. We had our eppendorfs and other containers sealed very well, while the tips of the pipette were thoroughly changed. The boxes with the new tips were always autoclaved, and the lab bench after every experiment was cleaned with ethanol.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mySlides1">
+          <div class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+            <div class="col-md-4">
+              <img src="https://static.igem.wiki/teams/4989/wiki/safety3.jpg" style="width: 100%;" alt="The Problem Image">
+            </div>
+            <div class="col-md-8">
+              <h2 class="igemthrace-blue-text-coloring">Safety in the laboratory</h2>
+              <h2 class="igemthrace-blue-text-coloring">Working with the ELISA kit</h2>
+              <div class="igemthrace-space-height-2"></div>
+              <p class="igemthrace-blue-text-coloring">ELISA is a very long and detailed experimental procedure that is performed on an open bench but still, safety needs must be followed. The kit included specific orders that we followed regarding corrosive materials that were included in the reagents. Every member of the wet lab wore gloves and a lab coat and discarded the remaining corrosive substance in a special biohazard container intended for biohazardous substances.</p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="mySlides1">
+          <div class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+            <div class="col-md-4">
+              <img src="https://static.igem.wiki/teams/4989/wiki/safety4.jpg" style="width: 100%;" alt="The Problem Image">
+            </div>
+            <div class="col-md-8">
+              <h2 class="igemthrace-blue-text-coloring">Safety in the laboratory</h2>
+              <h2 class="igemthrace-blue-text-coloring">Working with microorganisms</h2>
+              <div class="igemthrace-space-height-2"></div>
+              <p class="igemthrace-blue-text-coloring">Microorganisms specifically bacteria need specific conditions for growing and culturing. In the Laboratory of Biotechnology and Applied Microbiology which is specifically designed for culturing microorganisms and conducting research on various food sources, there is specific equipment for that kind of lab work. There are multiple autoclaves, flow hoods, incubators, and technological equipment such as HPLC (High-Performance Liquid Chromatography). The laboratory personnel is highly equipped to handle those pieces of machinery as well as culturing microorganisms and experimenting with food substances. Thus, all the safety measures were followed. Lastly, since the Laboratory of Biotechnology and Applied Microbiology is included in the FoodBiomes, a Hellenic distributed research infrastructure, all the equipment used is certified.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mySlides1">
+          <div class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+            <div class="col-md-4">
+              <img src="https://static.igem.wiki/teams/4989/wiki/safety5.jpg" style="width: 100%;" alt="The Problem Image">
+            </div>
+            <div class="col-md-8">
+              <h2 class="igemthrace-blue-text-coloring">Safety in the laboratory</h2>
+              <h2 class="igemthrace-blue-text-coloring">Personal safety</h2>
+              <div class="igemthrace-space-height-2"></div>
+              <p class="igemthrace-blue-text-coloring">All our members of the wet lab team wore their lab coats and gloves as it was necessary for specific procedures that required sterile conditions and protection from corrosive substances.</p>
+            </div>
+          </div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="igemthrace-space-height-2"></div>
+
+      <div id="section3" class="slideshow-container">
+        <div class="mySlides2">
+          <div class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+            <div class="col-md-4">
+              <img src="https://static.igem.wiki/teams/4989/wiki/safety6.jpg" style="width: 100%;" alt="The Problem Image">
+            </div>
+            <div class="col-md-8">
+              <h2 class="igemthrace-blue-text-coloring">Biological Safety</h2>
+              <h2 class="igemthrace-blue-text-coloring">Strain selection</h2>
+              <div class="igemthrace-space-height-2"></div>
+              <p class="igemthrace-blue-text-coloring">Besides the scientific and bioinformatic research that was conducted in order to choose our strain, we also wanted to ensure the safe aspect of the strain that could be potentially administered to a patient. Lactobacillus rhamnosus GG is very well-known to consumers and widely used as a probiotic since it is Generally Recognized As Safe (GRAS) by the Food and Drugs Administration (FDA) for its administration and addition in foods.</p>
+              <p class="igemthrace-blue-text-coloring"><a href="https://static.igem.wiki/teams/4989/wiki/safety.pdf" download><u>Click here to download the PDF.</u></a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mySlides2">
+          <div class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+            <div class="col-md-4">
+              <img src="https://static.igem.wiki/teams/4989/wiki/safety7.jpg" style="width: 100%;" alt="The Problem Image">
+            </div>
+            <div class="col-md-8">
+              <h2 class="igemthrace-blue-text-coloring">Biological Safety</h2>
+              <h2 class="igemthrace-blue-text-coloring">Generally GMOs as food substances</h2>
+              <div class="igemthrace-space-height-2"></div>
+              <p class="igemthrace-blue-text-coloring">According to the FDA and the Qualified Presumption of Safety (QPS) self-cloning, which is the reintroduction of the DNA from a host that modifications have been done or from a closely related organism that is stated as GRAS, is not considered a genetically modified organism. Therefore, under that umbrella the organism that we aim to introduce as a probiotic is recognized from a wider perspective safe.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mySlides2">
+          <div class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+            <div class="col-md-4">
+              <img src="https://static.igem.wiki/teams/4989/wiki/safety8.jpg" style="width: 100%;" alt="The Problem Image">
+            </div>
+            <div class="col-md-8">
+              <h2 class="igemthrace-blue-text-coloring">Biological Safety</h2>
+              <h2 class="igemthrace-blue-text-coloring">Plasmid design</h2>
+              <div class="igemthrace-space-height-2"></div>
+              <p class="igemthrace-blue-text-coloring">The plasmid that we designed to be introduced into our strain Lactobacillus rhamnosus GG, and that will include the genes for the butyrate-producing metabolic pathway should meet certain safety requirements:</p>
+              <ul>
+                <li class="igemthrace-blue-text-coloring">The DNA of the plasmid should come from the same organism or from an organism that is recognized as safe and is closely related to the host. This reassures that the bacterial organism pruned to be a probiotic, is safe for the human being, and will not be the cause of undesirable side-effects and conditions that jeopardize the overall health.</li>
+                <li class="igemthrace-blue-text-coloring">The plasmid must not include an antibiotic resistance gene as a selection marker. In this way, the “cross-over” of antibiotic resistance genes between microorganisms in the gut flora and therefore any chance of an antibiotic resistance episode occurring is not viable.</li>
+              </ul>
+              <p class="igemthrace-blue-text-coloring">If the above requirements are met, then we have created a food-grade system. The design of our plasmid is based on the above safety pillars. The pMG36e plasmid is a vector that is derived from Lactococcus lactis a GRAS organism and very closely related to the Lactobacillus species that is our target host.</p>
+              <p class="igemthrace-blue-text-coloring">Unfortunately, the few commercially available Pmg36e plasmids contain antibiotic resistance to the ampicillin gene. However, through cloning, we can add another marker that bibliographically is very used and safe, the NisI gene from the NICE operon that codes for an antibacterial peptide that grants immunity from nisin which serves as a food preservative. </p>
+            </div>
+          </div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+      </div>
+
+
+      <div class="igemthrace-space-height-2"></div>
+
+
+      <div id="section4" class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+        <div class="col-md-4">
+          <img src="https://static.igem.wiki/teams/4989/wiki/safety9.jpg" style="width: 100%;">
+        </div>
+        <div class="col-md-8">
+          <h2 class="igemthrace-blue-text-coloring">Consumer and Environmental safety</h2>
+          <div class="igemthrace-space-height-2"></div>
+          <p class="igemthrace-blue-text-coloring">In a more general sense, since we plan on using GRAS microorganisms as a probiotic, we have a first safety measure on encountering the possibility of an unexpected increase in the population of the GMO probiotic. A probiotic is a live organism so it can be located in the gut for a certain period of time, but due to the changing environment, the antagonism with other microorganisms, the nourishment, etc. might reduce the quantity of the probiotic.</p>
+          <p class="igemthrace-blue-text-coloring">However, in order to ensure that there is no possibility of the microorganism leaking into the environment, we conducted research on previous iGem teams with similar aspects of our project and we came up with a kill switch that could potentially be included, with the right design, to our project:</p>
+          <ul>
+            <li class="igemthrace-blue-text-coloring"> From the Igem SZPT-CHINA 2019, we would like to include in our project their kill switch that ensures no leaking of the probiotic in the environment. More specifically, when probiotics are discarded in the environment through feces, they experience glucose starvation. This situation induces a promoter, the T-acrp promoter, in order for the autolytic enzyme gene (acmA) to be overexpressed.</li>
+          </ul>
+        </div>
+      </div>
+
+      
+      <div class="igemthrace-space-height-2"></div>
+
+
+      <div id="section5" class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+        <div class="col-md-4">
+          <img src="https://static.igem.wiki/teams/4989/wiki/safety4.jpg" style="width: 100%;">
+        </div>
+        <div class="col-md-8">
+          <h2 class="igemthrace-blue-text-coloring">Human Practices Safety</h2>
+          <div class="igemthrace-space-height-2"></div>
+          <p class="igemthrace-blue-text-coloring">We designed a questionnaire to get feedback from the public. The questionnaire was designed according to the Resources for understanding human subjects research found in the Human Subjects Research Policy of the competition page and was developed in collaboration with the team of psychologists and social workers of the structure in Thrace of the social psychiatry company P. Sakellaropoulos. The questionnaire is anonymous and before the beginning of the questions there is the following text translated into English:</p>        
+          <div class="italic-box">
+            <p>We are the iGEM Thrace 2023 team under the auspices of the Democritus University of Thrace and aim to win the highest distinction at the iGEM global synthetic biology competition that will take place in November 2023 in Paris.</p>
+            <p>Psychiatric diseases and more specifically depression is a major health and social problem, which needs an immediate and drastic solution. Our scientific project envisages the design of a therapeutic agent aimed at treating depression. It is known that the human intestine is a normal "home" of many microorganisms that coexist harmoniously with the wider elements of the human body. All of these organisms make up the gut microbiome. Our team wishes to harness and modify the interactions of the gut microbiome in order to reduce symptoms of depression.</p>
+            <p>At the same time, for the most personalized and comprehensive treatment for the patient, we aim to develop, with the use of machine learning, an application that will act as a consultant and complement the status of the supervising doctor. This application will be able to "read" the patient's texts and understand the course of the depression, giving the appropriate updates and information for the evolution of the treatment (which we have formulated and applied) both to the doctor and to the patient.</p>
+            <p>Your participation in this questionnaire is voluntary and completely anonymous. The data collected will be exclusively analyzed statistically and for the improvement of the application that we will develop. Completing the questionnaire takes about 3 minutes.</p>
+            <p>If you have any questions or suggestions about the questionnaire or our project, you can contact us at mail : igem.thrace2023@gmail.com and we will answer you as soon as possible.</p>
+            <p>Thank you very much for your time!</p>
+          </div>
+          <p class="igemthrace-blue-text-coloring">In addition, before the start of filling in the answers there is a box which says:</p>        
+          <div class="italic-box">
+            <p>I have read the above information and agree to participate in this research.</p>
+          </div>
+          <p class="igemthrace-blue-text-coloring">Only responses that have this box checked are taken into account in the analysis of the results.</p>                
+        </div>
+      </div>
+
+      
+      
+      <div class="igemthrace-space-height-2"></div>
+
+
+      <div id="section6" class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+        <div class="col-md-4">
+          <img src="https://static.igem.wiki/teams/4989/wiki/safety8.png" style="width: 100%; padding-top: 20px;">
+        </div>
+        <div class="col-md-8">
+          <h2 class="igemthrace-blue-text-coloring">Educational safety</h2>
+          <div class="igemthrace-space-height-2"></div>
+          <p class="igemthrace-blue-text-coloring">During education and public engagement activities, we captured moments through photographs. If there was an adult in any shot, we always asked for their permission to take a picture. When there were children in the shot, we took the photos in such a way that no faces could be seen. Additionally, we blurred their faces in any social media posts that required it.</p>        
+          <p class="igemthrace-blue-text-coloring">Finally, in online events we organized such as webinars and workshops, in the screenshots we took we made sure to crop the images appropriately so that the names and surnames of the participants could not be seen.</p>                
+        </div>
+      </div>
+
+
+
+
+      
+      <div class="igemthrace-space-height-2"></div>
+
+      <div id="section7" class="row igemthrace-nav-menu-content-spacer igemthrace-blue-shadow rounded">
+        <div class="col-md-4">
+          <img src="https://static.igem.wiki/teams/4989/wiki/references.png" style="width: 100%;">
+        </div>
+        <div class="col-md-8">
+          <h2 class="igemthrace-blue-text-coloring">References</h2>
+          <div class="igemthrace-space-height-2"></div>
+          <p class="igemthrace-blue-text-coloring">FDA. “Generally Recognized as Safe (GRAS).” U.S. Food and Drug Administration, 2019, www.fda.gov/food/food-ingredients-packaging/generally-recognized-safe-gras</p>
+          <p class="igemthrace-blue-text-coloring">Landete, José Maria. “A Review of Food-Grade Vectors in Lactic Acid Bacteria: From the Laboratory to Their Application.” Critical Reviews in Biotechnology, vol. 37, no. 3, Feb. 2016, pp. 296–308, https://doi.org/10.3109/07388551.2016.1144044. Accessed 17 Mar. 2022</p>
+          <p class="igemthrace-blue-text-coloring">“A Review of Food-Grade Vectors in Lactic Acid Bacteria: From the Laboratory to Their Application.” Critical Reviews in Biotechnology, vol. 37, no. 3, Feb. 2016, pp. 296–308, https://doi.org/10.3109/07388551.2016.1144044.</p>
+          <p class="igemthrace-blue-text-coloring">T., Takala, and Saris P. “A Food-Grade Cloning Vector for Lactic Acid Bacteria Based on the Nisin Immunity Gene NisI.” Applied Microbiology and Biotechnology, vol. 59, no. 4-5, Jan. 2002, pp. 467–71, https://doi.org/10.1007/s00253-002-1034-4. Accessed 3 Apr. 2021</p>
+          <p class="igemthrace-blue-text-coloring">Tagliavia, Marcello, and Aldo Nicosia. “Advanced Strategies for Food-Grade Protein Production: A New E. Coli/Lactic Acid Bacteria Shuttle Vector for Improved Cloning and Food-Grade Expression.” Microorganisms, vol. 7, no. 5, Apr. 2019, p. 116, https://doi.org/10.3390/microorganisms7050116</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <script>
+        let slideIndex = [1,1];
+        let slideId = ["mySlides1", "mySlides2"]
+        showSlides(1, 0);
+        showSlides(1, 1);
+        
+        function plusSlides(n, no) {
+          showSlides(slideIndex[no] += n, no);
+        }
+        
+        function showSlides(n, no) {
+          let i;
+          let x = document.getElementsByClassName(slideId[no]);
+          if (n > x.length) {slideIndex[no] = 1}    
+          if (n < 1) {slideIndex[no] = x.length}
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";  
+          }
+          x[slideIndex[no]-1].style.display = "block";  
+        }
+        </script>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+  
+{% block title %}{% endblock %}
+{% block lead %}
+
+<div class="d-flex justify-content-center">
+  <div class="col igemthrace-image-container" style="background-image: url('https://static.igem.wiki/teams/4989/wiki/background-cover.gif');background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;">
+    <div class="igemthrace-blur d-flex justify-content-center" style="width: 100%;height: 100%;align-items: center;">
+      <h2 class="igemthrace-white-text-coloring igemthrace-bold-font">Background</h2>
+    </div>
+  </div>
+</div>
+
+<!--
+Describe the research, experiments, and protocols you used in your iGEM project.
+-->
+{% endblock %}
+
+{% block page_content %}
+
+<div class="container d-flex flex-column">
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">Gut-Brain Axis</h2>
+    <p class="igemthrace-blue-text-coloring">The main pillar of the project is the gut-brain axis and the way it connects the gastrointestinal system and the central nervous system through the production of serotonin.</p>
+    <div style="text-align: center;">    
+        <figure>
+            <img src="https://static.igem.wiki/teams/4989/wiki/gba.png" style="width: 350px;">
+            <figcaption> </figcaption>
+        </figure>
+    </div>
+    <p class="igemthrace-blue-text-coloring">The gut-brain axis refers to the bidirectional communication network between the Gastrointestinal (GI) system and the central nervous system (CNS). This communication involves a complex network of signals, including neural, humoral, and immune pathways, and it plays a significant role in regulating various physiological and psychological processes, such as digestion, mood, and even the function of the immune system.</p>
+    <p class="igemthrace-blue-text-coloring">Serotonin (5-HT) is a monoamine neurotransmitter, with a variety of functions in many systems of the human body. It modulates the mood and the memory, affects cognitive function, and plays an important role in platelet aggregation and gut motility among other functions. Serotonin is synthesized from tryptophan, a common amino acid, via the enzyme tryptophan hydroxylase (TPH). There are two isoforms of this enzyme, TPH1 located in the gut and TPH2 located in the CNS. They both metabolize tryptophan to serotonin.</p>
+    <p class="igemthrace-blue-text-coloring">In general, tryptophan serves as a precursor of two metabolites: serotonin and kynurenine. The metabolic pathway describing tryptophan metabolism is shown below:</p>
+    <div style="text-align: center;">    
+        <figure>
+            <img src="https://static.igem.wiki/teams/4989/wiki/serotonin-background.png" style="width: 500px;">
+            <figcaption>Biosynthesis of serotonin (5-HT): Tryptophan is converted to 5-hydroxytryptamine (5-HTP) by tryptophan hydroxylase (TPH). Then, 5-HTP is converted to 5-HT by 5-HTP decarboxylase. Biosynthesis of kynurenine. Tryptophan is converted to kynurenine by indoleamine-2,3-dioxygenase (IDO) and tryptophan-2,3-dioxygenase (TDO).</figcaption>
+        </figure>
+    </div>
+    <p class="igemthrace-blue-text-coloring">A percentage as high as 95% of serotonin in the human body is produced in the gut, while the remaining 5% is produced in the raphe nuclei in the CNS. It is important to note that serotonin cannot cross the blood-brain-barrier, resulting in two distinctive serotonin pools: one in the CNS, where serotonin is responsible for the mood and other brain-related functions, and one in the rest of the body, where serotonin has various roles such as platelet aggregation and gut motility.</p>
+  </div>
+
+
+
+
+  <div class="igemthrace-space-height-2"></div>
+
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+      <h2 class="igemthrace-blue-text-coloring">Short Chain Fatty Acids (SCFAs)</h2>
+      <p class="igemthrace-blue-text-coloring">The human gut microbiota, which consists of 1014 bacteria, contains 150 times more genes than the human genome and at least 10 times more microbial cells than human cells. The intestinal epithelium is shaped by the gut microbiota, which is also important for energy production, preventing pathogen adhesion to the intestinal surface, and controlling immune system development. Numerous recent studies have demonstrated that the gut microbiota also affects the brain's physiological, behavioral, and cognitive processes. It is now known that a number of psychiatric diseases, such as autism, anxiety, depression, multiple sclerosis (MS), Alzheimer's disease (AD), and Parkinson's disease (PD), are linked with gut dysbiosis. In the gut-brain communication, there are specific bacteria taxa in the gut that play a very important role, namely the SCFA-producing bacteria taxa.</p>
+      <div style="text-align: center;">    
+        <figure>
+            <img src="https://static.igem.wiki/teams/4989/wiki/microbiota.png" style="width: 350px;">
+            <figcaption> </figcaption>
+        </figure>
+      </div>
+      <p class="igemthrace-blue-text-coloring">A two to six carbon aliphatic tail distinguishes SCFAs from other carboxylic acids. Although SCFAs can be produced spontaneously by host metabolic pathways, particularly in the liver, the major site of production is the colon which requires the presence of specific colonic bacteria explaining their absence in germ-free mice. The main SCFAs released through fermentation of fiber and resistant starches, acetate (C2), propionate (C3), and butyrate (C4), are primarily released in the proximal colon in very high concentrations (70-140 mM), whereas their concentrations are lower in the distal colon (20-70 mM) and in the distal ileum (20-40 mM).</p>
+      <div style="text-align: center;">    
+        <figure>
+            <img src="https://static.igem.wiki/teams/4989/wiki/scfas.gif" style="width: 350px;">
+            <figcaption> </figcaption>
+        </figure>
+      </div>
+      <p class="igemthrace-blue-text-coloring">The primary substrates for the synthesis of SCFAs are indigestible saccharides. Starch, starch-like, and nonstarch polysaccharides (NSPs) are the three subcategories of polysaccharides. In a healthy state, the small intestine fully digests starch and starch-like polysaccharides, producing glucose. Specific colonic anaerobic bacteria have the ability to ferment polysaccharides that are partially or completely undigested in the small intestine, releasing SCFAs as well as gases and heat. The process involved in the production of SCFAs from fiber involves complex enzymatic pathways that are active in an extensive number of bacterial species. Although some bacterial species, such the Bifidobacteria, can use the pentose pathway, the glycolytic pathway is the most common route for the production of SCFAs in bacteria.</p>
+  </div>
+
+
+
+<div class="igemthrace-space-height-2"></div>
+
+<div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">Short-chain fatty acids-producing probiotics</h2>
+    <p class="igemthrace-blue-text-coloring">The term "psychobiotics" was originally used by Dinan et al. in 2013 to refer to live organisms (probiotics) that, when consumed in sufficient quantities, have a positive effect on individuals with psychiatric illnesses. Psychobiotics are a unique class of probiotics that helps people's mental wellness. Psychobiotics may produce or stimulate the creation of neurotransmitters, SCFAs, enteroendocrine hormones, and anti-inflammatory cytokines, in contrast to conventional probiotics. The definition of psychobiotics has since been broadened to cover "any exogenous influence whose effect on the brain is bacterially mediated" as a result of ongoing study in this area.</p>
+    <p class="igemthrace-blue-text-coloring">Rodent stress inductions and rodent behavioral tests are used in the majority of psychobiotics research studies to measure motivation, anxiety, and depression in the animals used as models. Numerous psychobiotics have been researched up to this point. A major development in psychobiotics occurred in November 2019 when sodium oligomannate (GV-971) was licensed in China for the treatment of mild to severe Alzheimer's disease in order to enhance cognitive function.</p>
+    <p class="igemthrace-blue-text-coloring">Recently, increasing attention has been paid to SCFAs for their protective roles against the pathophysiological processes of psychiatric disorders. Decreased SCFAs-producing taxa, accompanied by a reduction in SCFAs production, are the major characteristics of gut dysbiosis in various psychiatric disorders.</p>
+    <p class="igemthrace-blue-text-coloring">Thus, correcting the alterations of the gut microbiota in these mental diseases using suitable therapeutic options has become a research hotspot in psychiatry. The SCFAs-producing probiotics can not only directly increase their abundance in the gut microbiota, but also intimately interact with various commensal bacteria to indirectly promote the restoration of eubiosis of the gut microbiota. As one of the key bioactive microbial metabolites (also called postbiotics), SCFAs play crucial roles in mediating MGBA communication and maintaining health. For example, a mixture of three SCFAs (acetate, propionate, and butyrate) showed significant anxiolytic effects in mice undergoing chronic psychosocial stress.</p>
+</div>
+</div>
+
+
+
+<div class="igemthrace-space-height-2"></div>
+
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">METABOLIC PATHWAYS OF SCFAs PRODUCTION</h2>
+ 
+    <p class="igemthrace-blue-text-coloring">Short-Chain Fatty Acids are vital metabolic byproducts generated through microbial fermentation of dietary fibers in the gut. Gut bacteria, particularly those belonging to the Firmicutes and Bacteroidetes phyla, break down these substrates through various metabolic pathways. There are several fermentation pathways leading to the production of SCFAs, including the glycolytic pathway, the pentose phosphate pathway, and the reductive citric acid cycle. In these pathways, bacteria metabolize sugars and other organic compounds to produce SCFAs as metabolic byproducts.</p>
+    <p class="igemthrace-blue-text-coloring"><strong>Acetate Production: </strong>Acetate is the most abundant SCFA in the gut. It is primarily generated through the acetyl-CoA pathway, where acetyl-CoA is converted into acetate via various enzymatic reactions.</p>
+    <p class="igemthrace-blue-text-coloring"><strong>Propionate Production: </strong>Propionate is synthesized mainly via the succinate pathway. Bacteria convert succinate, a metabolic intermediate, into propionate. This pathway is essential for maintaining energy balance and regulating blood glucose levels.</p>
+    <p class="igemthrace-blue-text-coloring"><strong>Butyrate Production: </strong>Butyrate is generated through several pathways, with the two main pathways being the butyryl-CoA:acetate CoA-transferase pathway and the butyrate kinase pathway. These pathways involve the conversion of acetyl-CoA and butyryl-CoA into butyrate.</p>
+    
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/butyrate-pathways.png" style="width: 350px;">
+        <figcaption>Pathways for the synthesis of SCFAs. Lange, O., Proczko-Stepaniak, M. & Mika, A. Short-Chain Fatty Acids—A Product of the Microbiome and Its Participation in Two-Way Communication on the Microbiome-Host Mammal Line. Curr Obes Rep 12, 108–126 (2023). https://doi.org/10.1007/s13679-023-00503-6</figcaption>
+      </figure>
+    </div>
+  
+  </div>  
+
+
+
+
+
+<div class="igemthrace-space-height-2"></div>
+
+<div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">References</h2>
+    <ol>
+        <li class="igemthrace-blue-text-coloring">Cheng, Y., Liu, J., & Ling, Z. (2022). Short-chain fatty acids-producing probiotics: A novel source of psychobiotics. Critical reviews in food science and nutrition, 62(28), 7929-7959.</li>
+        <li class="igemthrace-blue-text-coloring">Dalile, B., Van Oudenhove, L., Vervliet, B., & Verbeke, K. (2019). The role of short-chain fatty acids in microbiota–gut–brain communication. Nature reviews Gastroenterology & hepatology, 16(8), 461-478.</li>
+        <li class="igemthrace-blue-text-coloring">Foster, J. A., & Neufeld, K. M. (2013). Gut–brain axis: how the microbiome influences anxiety and depression. Trends in Neurosciences, 36(5), 305–312. https://doi.org/10.1016/j.tins.2013.01.005</li>
+        <li class="igemthrace-blue-text-coloring">Jenkins, T. A., Nguyen, J., Polglaze, K. E., & Bertrand, P. (2016). Influence of Tryptophan and Serotonin on Mood and Cognition with a Possible Role of the Gut-Brain Axis. Nutrients, 8(1), 56. https://doi.org/10.3390/nu8010056</li>
+        <li class="igemthrace-blue-text-coloring">Maes, M. (2008). The cytokine hypothesis of depression: inflammation, oxidative & nitrosative stress (IO&NS) and leaky gut as new targets for adjunctive treatments in depression. PubMed, 29(3), 287–291. https://pubmed.ncbi.nlm.nih.gov/18580840</li>
+        <li class="igemthrace-blue-text-coloring">Waclawiková, B., & Aidy, S. E. (2018). Role of microbiota and tryptophan metabolites in the remote effect of intestinal inflammation on brain and depression. Pharmaceuticals, 11(3), 63. https://doi.org/10.3390/ph11030063</li>
+        <li class="igemthrace-blue-text-coloring">Tan, J., McKenzie, C., Potamitis, M., Thorburn, A. N., Mackay, C. R., & Macia, L. (2014). The role of short-chain fatty acids in health and disease. Advances in immunology, 121, 91-119.</li>
+        <li class="igemthrace-blue-text-coloring">Xie, R., Jiang, P., Lin, L., Jiang, J. H., Yu, B., Rao, J., Liu, H., Wei, W., & Qiao, Y. (2020). Oral treatment with Lactobacillus reuteri attenuates depressive-like behaviors and serotonin metabolism alterations induced by chronic social defeat stress. Journal of Psychiatric Research, 122, 70–78. https://doi.org/10.1016/j.jpsychires.2019.12.013</li>
+        <li class="igemthrace-blue-text-coloring">Zhang, Z., Gao, C., Zhang, H., Yang, J., Wang, Y., Pan, L., Yu, H., He, C., Luo, H., Zhao, Z., Zhou, X., Wang, Y., Fu, J., Han, P., Dong, Y., Wang, G., Li, S., Wang, Y., Jiang, J., & Zhong, W. (2022). Morinda officinalis oligosaccharides increase serotonin in the brain and ameliorate depression via promoting 5-hydroxytryptophan production in the gut microbiota. Acta Pharmaceutica Sinica B, 12(8), 3298–3312. https://doi.org/10.1016/j.apsb.2022.02.032</li>
+      <li class="igemthrace-blue-text-coloring">Images created by biorender.com</li>
+    </ol>
+</div>
+</div>
+
+
+{% endblock %}

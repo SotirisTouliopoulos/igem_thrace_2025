@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+  
+{% block title %}{% endblock %}
+{% block lead %}
+
+<div class="d-flex justify-content-center">
+  <div class="col igemthrace-image-container" style="background-image: url('https://static.igem.wiki/teams/4989/wiki/wiki/education-and-communicationn.jpg');background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;">
+    <div class="igemthrace-blur d-flex justify-content-center" style="width: 100%;height: 100%;align-items: center;">
+      <h2 class="igemthrace-white-text-coloring igemthrace-bold-font">Education & Communication</h2>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block page_content %}
+
+<div class="igemthrace-space-height-2"></div>
+<div class="igemthrace-space-height-2"></div>
+<div class="container">
+  <div class="col-12 d-flex justify-content-center">
+    <div class="igemthrace-button d-flex justify-content-center m-3">
+      <a href="{{ url_for('pages', page='education-public-engagement')}}">
+        <h3 class="igemthrace-white-text-coloring">
+          Education & Public Engagement
+        </h3>
+      </a>
+    </div>
+    <div class="igemthrace-button d-flex justify-content-center m-3" style="border-radius: 1rem;">
+      <a href="{{ url_for('pages', page='communication')}}">
+        <h3 class="igemthrace-white-text-coloring">
+          Communication
+        </h3>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="igemthrace-space-height-2"></div>
+<div class="igemthrace-space-height-2"></div>
+
+<!--
+<div class="row mt-4">
+  <div class="col">
+    <div class="bd-callout bd-callout-info">
+      <h4>Best Education</h4>
+      <p>How have you developed new opportunities to include more people in shaping synthetic biology? Innovative educational tools and outreach activities have the ability to establish a two-way dialogue with new communities by discussing public values and the science behind synthetic biology. Document your approach and what was learned by everyone involved to compete for this award.</p>
+      <p>To compete for the Best Education prize, please describe your work on this page and also fill out the description on the <a href="https://competition.igem.org/deliverables/judging-form">judging form</a>.</p>
+      <hr>
+      <p>Please see the <a href="https://competition.igem.org/judging/awards">2023 Awards Page</a> for more information.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col">
+    <h2>Inspirations</h2>
+    <hr>
+    <ul>
+      <li><a href="https://2020.igem.org/Team:CCA_San_Diego/Education">2020 CCA San Diego</a></li>
+      <li><a href="https://2020.igem.org/Team:Lambert_GA/Education">2020 Lambert GA</a></li>
+      <li><a href="https://2020.igem.org/Team:Stanford/Education">2020 Stanford</a></li>
+      <li><a href="https://2020.igem.org/Team:Waseda/Education">2020 Waseda</a></li>
+      <li><a href="https://2020.igem.org/Team:Fudan/Education">2020 Fudan</a></li>
+      <li><a href="https://2020.igem.org/Team:Toulouse_INSA-UPS/Education">2020 Toulouse INSA UPS</a></li>
+    </ul>
+  </div>
+</div>
+-->
+{% endblock %}

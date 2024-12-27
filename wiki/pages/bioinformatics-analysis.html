@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+  
+{% block title %}{% endblock %}
+{% block lead %}
+
+<style>
+  .row {
+    display: flex;
+  }
+
+  .column {
+    flex: 50%;
+    padding: 100px;
+  }
+</style>
+
+
+<div class="d-flex justify-content-center">
+  <div class="col igemthrace-image-container" style="background-image: url('https://static.igem.wiki/teams/4989/wiki/wiki/bioinformatics-analysis.gif');background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;">
+    <div class="igemthrace-blur d-flex justify-content-center" style="width: 100%;height: 100%;align-items: center;">
+      <h2 class="igemthrace-white-text-coloring igemthrace-bold-font">Database Mining for microbiome composition from patients with depressive disorder<br>and Genome Annotation workflow</h2>
+    </div>
+  </div>
+</div>
+<!--
+Demonstrate engineering success in a part of your project by going through at least one iteration of the engineering design cycle.
+-->
+{% endblock %}
+
+{% block page_content %}
+
+
+
+
+<div class="container d-flex flex-column">
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">Introduction - Data Mining</h2>
+    <p class="igemthrace-blue-text-coloring">We used GMrepo [1] , a curated database of consistently annotated human gut metagenomes. It's API enabled us to download analyzed amplicon runs from a specific<br>NCBI project (American Gut Project, id: PRJEB11419 ) which contained 2 phenotypes (depression with phenotype id: D003863 and healthy controls with phenotype<br>id: D006262 ).</p>
+    <p class="igemthrace-blue-text-coloring">Adequate metadata were available (such as age, bmi, country, sex etc) and helped us remove outliers from our dataset. It also helped us create a subsample from healthy cohorts with similar analogies in sex (female/male ratio).</p>
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/libre-runs2.png" style="width: 350px;">
+        <figcaption>Figure 1: Format of dataset containing amplicon run id’s and relative information and metadata</figcaption>
+      </figure>
+    </div>
+
+    <p class="igemthrace-blue-text-coloring">We excluded runs with a big “unknown bacteria” percentage by applying a cutoff of 40% in unknown bacteria. We also converted relative abundances to actual counts by having access to each run’s number of sequenced reads. We also aim to support our findings by also running our own qiime2 [2] amplicon analysis pipeline in the future.We created an OTU table to further analyze our data. Above criteria led to creation of 2 cohorts (depressive patients and healthy controls each with 160 amplicon runs).</p>
+
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/libre-otus.png" style="width: 350px;">
+        <figcaption>Figure 2: OTU table format</figcaption>
+      </figure>
+    </div>  
+  </div>  
+
+
+
+  
+<div class="igemthrace-space-height-2"></div>
+
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">Differential Abundance Analysis - Enrichment</h2>  
+    <p class="igemthrace-blue-text-coloring">As our team seeks to create a probiotic supplement, we want to ensure that it follows some basic conditions to be a probiotic and it is also significantly decreased in the depressed group, to avoid overrepresentation of it in the gut flora, that may cause a further metabolic dysregulation. Genus Lactobacillus bacteria generally tend to be a good probiotic according to literature and our analysis will be oriented on them.</p>
+    <p class="igemthrace-blue-text-coloring">From bibliography data and from the Disbiome database [3], we found that bacteria of the genus Lactobacillus are decreased in people with depression, and we seeked to further explore which Lactobacillus species follow the same decrease. Differential abundance analysis aims to find the differences in the abundance of each taxa between two classes of subjects or samples, assigning a significance value to each comparison. We applied a “wilcoxon” non-parametric test to find bacterial species that have statistically significant differences between our 2 cohorts and especially ones from the Lactobacillus genus. We found 268 bacteria that appeared to be differentially abundant in the 2 cohorts.</p>
+    <p class="igemthrace-blue-text-coloring">We proceeded to enrichment analysis to check which species are decreased or increased in each cohort. Enrichment analysis reveals over-represented genes or proteins in a large set of them that may have an association with a phenotype. Distribution of enrichment values appears in Figure 3. We can see that some bacterial species are enriched with positive or negative scores (unequal to 0), something that supports the non-parametric test findings. We also see a wide range of scores occurring, meaning that bacteria that belong to a certain cohort are not equally distributed inside that cohort.</p>
+
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/histogram-enrichment.png" style="width: 350px;">
+        <figcaption>Figure 3: Distribution of Enrichment values across bacteria that appeared in both cohorts. In the x-axis, there are enrichment values and in the y-axis, counts of bacteria with the corresponding value.</figcaption>
+      </figure>
+    </div>
+
+    <p class="igemthrace-blue-text-coloring">Enrichment values for some important species together with their -log10 p-value can be seen in Figure 4</p>
+
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/bioinfo-volcano.png" style="width: 350px;">
+        <figcaption>Figure 4: Volcano plot of enrichment scores with -log10 p-values</figcaption>
+      </figure>
+    </div>
+
+
+    <p class="igemthrace-blue-text-coloring">Enrichment scores for some interesting species can be seen in Figure 5A. If we focus on some species with negative enrichment scores from the depressed cohort, image 5B occurs.</p>
+
+    <div class="row">
+      <div class="column">
+        <figure>
+          <img src="https://static.igem.wiki/teams/4989/wiki/4a.png" style="width: 400px;">
+          <figcaption>Figure 5A: Scores for both positive and negative enrichment.</figcaption>      
+        </figure>
+        </div>
+      <div class="column">
+        <figure>
+          <img src="https://static.igem.wiki/teams/4989/wiki/4b.png" style="width: 400px;">
+          <figcaption>Figure 5B: Barplot of negative scores</figcaption>      
+        </figure>
+        </div>
+    </div>
+         
+    <p class="igemthrace-blue-text-coloring"><strong>Lactobacillus rhamnosus and Lactobacillus ruminis  were seen to be decreased in the depressive cohort (Significant-decrease among other genus Lactobacillus bacteria).</strong></p>
+    <p class="igemthrace-blue-text-coloring"><strong>We informed wet-lab on our findings and through bibliographic references and lab availability, they thought Rhamnosus as a good probiotic candidate.</strong></p>
+    <p class="igemthrace-blue-text-coloring">Enrichment analysis and non-parametric tests led to the creation of two new datasets, one with increased and one with decreased bacterial abundance, in patients with depression. Decreased-abundance cohort consists of 38 species and increased-abundance cohort (after a strict p-value application to match the decreased-cohort) of 40 species. Search for recursive alterations in protein expression  in the 2 cohorts, might reveal metabolic markers that contribute to pathogenesis.</p>
+    <p class="igemthrace-blue-text-coloring"></p>
+  </div>
+
+
+
+
+  <div class="igemthrace-space-height-2"></div>
+
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+    <h2 class="igemthrace-blue-text-coloring">Functional Enrichment Analysis</h2>
+    <p class="igemthrace-blue-text-coloring">We moved on to annotate genomes and group potentially expressed proteins based on the 2 bacterial datasets we mentioned before. Thus, we can filter for differentially expressed proteins that have a major role in SCFA’s metabolism and pathogenesis of depression. First, we acquired a representative genome for all bacterial species using the GTDB database API [4]. With programming access (bash scripting) we got unique NCBI accessions for each representative species of our bacteria.</p>
+    
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/gtdb-api.png" style="width: 350px;">
+        <figcaption>Figure 6: GTDB API for getting access to representative species’ accession ids.  Image obtained from: https://gtdb-api.ecogenomic.org/#/species/species_cluster_species_search__species__get</figcaption>
+      </figure>
+    </div>
+    
+    <p class="igemthrace-blue-text-coloring">We downloaded each genome using the command line NCBI tool “datasets” [5].</p>
+
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/ncbi-datasets.png" style="width: 350px;">
+        <figcaption>Figure 7: Usage Example for NCBI ‘Datasets’ command line tool. Image obtained from https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/</figcaption>
+      </figure>
+    </div>
+        
+    <p class="igemthrace-blue-text-coloring">Annotation was done using the Prokka software [6]. With annotation we searched for open-reading frames in each genome and found all possible-expressed proteins. A protein may appear more than once in a genome so we counted only the presence or the absence of the protein. We also removed all hypothetical proteins from our analysis.</p>
+
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/7-prokka.png" style="width: 350px;">
+        <figcaption>Figure 8: TSV file that occurred from Prokka software</figcaption>
+      </figure>
+    </div>
+    
+    <p class="igemthrace-blue-text-coloring">Functional annotation gave insight into factors that may be responsible for gut dysbiosis affecting depression status, through SCFA’s metabolism regulation. <strong>Some proteins like butyryl-CoA-acetate-CoA-transferase and butyryl-CoA dehydrogenase are negatively enriched</strong>. The negative enrichment for these proteins can be seen in Figure 9.</p>
+
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/enrichment-functional.png" style="width: 350px;">
+        <figcaption>Figure 9: Functional Enrichment. With light blue we see proteins negatively enriched in the negatively-enriched bacteria cohort (proteins rarely found in genomes of bacteria decreased in patients with depression). In correspondence, proteins from the positive-enriched cohort are colored in salmon. We can see some decreased enzymes with high enrichment value, like butyryl-CoA-acetate-CoA-transferase (value: 1.58), Formate acetyltransferase 1 (value: 1.42), butyryl-CoA dehydrogenase (value: 1) and Propionyl−CoA:succinate CoA transferase (value: 1).</figcaption>
+      </figure>
+    </div>
+
+    <p class="igemthrace-blue-text-coloring">We then focused on the annotation results for the strain of Lactobacillus Rhamnosus that we aim to use in our project, and found absence of the <strong>butyryl-CoA-acetate-CoA-transferase , butyryl-CoA dehydrogenase and Propionyl−CoA:succinate CoA transferase</strong> as expected by the general datasets high enrichment values.</p>
+    <p class="igemthrace-blue-text-coloring">Wet Lab's initial plan was about inserting butyrate kinase enzyme in our vector system, which had 2 significant drawbacks, as reported in engineering success session. Bioinformatics Analysis gave insight into 2 new possible enzyme-candidates to be inserted in the vector. Bibliographic research of the <strong>butyryl-CoA-acetate-CoA-transferase’s and  butyryl-CoA dehydrogenase’s</strong> role in SCFA metabolism, and the possibility of reconstructing the Lactobacillus genome, led to the concept of creating a vector that expresses the dehydrogenase’s and transferase’s enzymes in the same part along with other enzymes from the acetyl-coa to butyrate pathway.</p>
+    <p class="igemthrace-blue-text-coloring">This is a "Design-Build-Test-Learn" cycle iteration completed with both Wet and Dry lab research. We changed and overcame the difficulties of the initial design and came up with a different vector system. You can see the DBTL cycle resume in Figure 10.</p>    
+
+    <div style="text-align: center;">
+      <figure>
+        <img src="https://static.igem.wiki/teams/4989/wiki/bioinfo-dbtl-2.png" style="width: 350px;">
+        <figcaption>Figure 10: Iteration of the Design-Build-Test-Learn cycle across Wet and Dry lab research</figcaption>
+      </figure>
+    </div>
+
+    <p class="igemthrace-blue-text-coloring">All Computational scripts for the analysis were written in python and R programming languages and can be found in the gitlab repository. Our analysis provided indications and in combination with extended bibliography research, helped in identifying the ideal enzyme. No metabolic marker contributing to pathway regulation was proven. Further techniques and methods should be used to remove bias, but here our aim was not about proving the biomarker.</p>
+
+  </div>
+
+
+
+
+  <div class="igemthrace-space-height-2"></div>
+
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+      <h2 class="igemthrace-blue-text-coloring">References</h2>
+      <p class="igemthrace-blue-text-coloring">[1] Die Dai, Jiaying Zhu, Chuqing Sun, Min Li, Jinxin Liu, Sicheng Wu, Kang Ning, Li-jie He, Xing-Ming Zhao, Wei-Hua Chen, GMrepo v2: a curated human gut microbiome database with special focus on disease markers and cross-dataset comparison, Nucleic Acids Research, Volume 50, Issue D1, 7 January 2022, Pages D777–D784, https://doi.org/10.1093/nar/gkab1019</p>
+      <p class="igemthrace-blue-text-coloring">[2] Bolyen E et. al., 2019. Reproducible, interactive, scalable and extensible microbiome data science using QIIME 2. Nature Biotechnology 37: 852–857. https://doi.org/10.1038/s41587-019-0209-9</p>
+      <p class="igemthrace-blue-text-coloring">[3] Janssens Y, Nielandt J, Bronselaer A, Debunne N, Verbeke F, Wynendaele E, Van Immerseel F, Vandewynckel YP, De Tré G and De Spiegeleer B. Disbiome database: linking the microbiome to disease. BMC Microbiology 2018; 18(1):50.</p>
+      <p class="igemthrace-blue-text-coloring">[4] Donovan H Parks, Maria Chuvochina, Christian Rinke, Aaron J Mussig, Pierre-Alain Chaumeil, Philip Hugenholtz, GTDB: an ongoing census of bacterial and archaeal diversity through a phylogenetically consistent, rank normalized and complete genome-based taxonomy, Nucleic Acids Research, Volume 50, Issue D1, 7 January 2022, Pages D785–D794, https://doi.org/10.1093/nar/gkab776</p>
+      <p class="igemthrace-blue-text-coloring">[5] https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/</p>
+      <p class="igemthrace-blue-text-coloring">[6] Seemann T, "Prokka: Rapid Prokaryotic Genome Annotation", Bioinformatics, 2014 Jul 15;30(14):2068-9. PMID:24642063.    doi:10.1093/bioinformatics/btu153. http://www.ncbi.nlm.nih.gov/pubmed/24642063</p>
+  </div>
+
+
+  
+</div>
+
+
+
+
+
+<!--
+<div class="row mt-4">
+  <div class="col">
+    <div class="bd-callout bd-callout-info">
+      <h4>Silver Medal Criterion #1</h4>
+      <p>Demonstrate engineering success in a part of your project by going through at least one iteration of the engineering design cycle. This achievement should be distinct from your Contribution for Bronze.<p>
+      <p>If you plan to show engineering success by creating a new Part that has been shown to work as expected, you must document your contribution on the Part's Main Page on the <a href="http://parts.igem.org/Main_Page">Registry</a> for your team to be eligible for this criteria.</p>
+      <hr>
+      <p>Please see the <a href="https://competition.igem.org/judging/medals">2023 Medals Page</a> for more information.</p>
+    </div>
+  </div>
+</div>
+-->
+{% endblock %}

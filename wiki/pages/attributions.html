@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+  
+{% block title %}{% endblock %}
+{% block lead %}
+
+<div class="d-flex justify-content-center">
+  <div class="col igemthrace-image-container" style="background-image: url('https://static.igem.wiki/teams/4989/wiki/wiki/111.gif');background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;">
+    <div class="igemthrace-blur d-flex justify-content-center" style="width: 100%;height: 100%;align-items: center;">
+      <h2 class="igemthrace-white-text-coloring igemthrace-bold-font">Behind the scenes...</h2>
+    </div>
+  </div>
+</div>
+
+<!--
+This page must show the attribution form of your project. This includes the work done by each of the student members on your team and any work that was done by people outside of your team, including the host labs, advisors, instructors, and individuals not on the team roster. This requirement is not about literature references - these can and should be displayed throughout your wiki.
+-->
+{% endblock %}
+
+{% block page_content %}
+
+
+
+<div class="container d-flex flex-column">
+  <div class="row igemthrace-blue-shadow p-3 rounded">
+    <p class="igemthrace-blue-text-coloring">Our team could not have accomplished as much without the significant contribution of various individuals and companies. We want to express our gratitude to all of the individuals who helped us along the way, especially our hardworking Team Members, Principal Investigators (PIs), Advisors, and Instructors. Apart from this, as noted in the attribution section below, we would like to acknowledge and thank the support given by our Sponsors, External Advisors, all our Partners and many other incredible individuals who made distinct contributions.</p>
+    <div class="row d-flex justify-content-center">
+        <iframe title="Thrace: collab (2023) [English]" style="width: 70%;" width="700" height="500" src="https://video.igem.org/videos/embed/15336af5-51de-41fd-bada-5596c73492de" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+    </div>
+  </div> 
+</div>  
+
+
+
+
+
+
+<!--
+<div class="row mt-4">
+  <div class="col">
+    <div class="bd-callout bd-callout-info">
+      <h4>Bronze Medal Criterion #2</h4>
+      <p>Describe what work your team members did and what other people did for your project.</p>
+      <p>The form that bas been embded in an iframe in this page shows your team's Project Attribution form. This page must keep the form as it is.</p>
+      <p>If you use a different website framework, make sure to embed the right URL for your team's form.</p>
+      <hr>
+      <p>Please see the <a href="https://competition.igem.org/deliverables/project-attribution">Project Attribution page</a> for more information.</p>
+    </div>
+  </div>
+</div>
+-->
+<!--
+  ======================================================================
+  == VERY IMPORTANT                                                   ==
+  ======================================================================
+  LEAVE THE IFRAME CODE BELOW AS IT IS, THE ATTRIBUTION FORM OF YOUR TEAM
+  WILL BE DISPLAYED ON THIS PAGE. DO NOT REMOVE IT, OTHERWISE YOU RISK OF
+  NOT MEETING BRONZE MEDAL CRITERION #2
+ -->
+<div class="row mt-4">
+  <script type="text/javascript">
+    // Listen to size change and update form height
+    window.addEventListener('message', function (e) {
+      const {type, data} = JSON.parse(e.data);
+      if (type === 'igem-attribution-form') {
+        const element = document.getElementById('igem-attribution-form')
+        element.style.height = data + 50 +'px'
+      }
+    });
+  </script>
+  <iframe
+    style='width: 100%'
+    id="igem-attribution-form"
+    src="https://attributions.igem.org?team=Thrace&year=2023"
+  >
+  </iframe>
+  <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+
+</div>
+
+{% endblock %}
